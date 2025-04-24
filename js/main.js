@@ -53,15 +53,15 @@ explication: "Esta seção é dedicada à figura central do esporte: o ciclista.
 const modalitiesData = {
   racing: {
     title: "🏁 Racing",
-    image: "images/Racing.png",
+    image: "images/racing.png",
     description: "O Racing é uma modalidade de corrida no BMX, onde o primeiro a cruzar a linha de chegada vence. Foi a segunda variação na origem do BMX, transformando o freestyle em uma competição focada em velocidade.",
     equipment: "• Capacete full face (proteção completa, incluindo queixo)\n• Calça e blusa de manga comprida\n• Opcional: sapatilha com clip para fixação no pedal",
     rules: "• Aplicação do fair play padrão das corridas\n• Evitar jogo de corpo com a bicicleta\n• Na largada, respeitar os sinais sonoros e visuais e aguardar a descida da barreira (gate)",
     competitions: "• Locais: competições municipais, estaduais e nacionais\n• Internacionais: Sul-americano, Pan-americano, Campeonato Mundial e Olimpíadas\n• Atletas de destaque: Guilherme Ribeiro; Deivlim (Turbo) Balthazar"
   },
   bowl: {
-    title: "📐 Bowl",
-    image: "images/Bowl.png",
+    title: "🥣 Bowl",
+    image: "images/bowl.png",
     description: "O Bowl pertence ao Freestyle BMX, onde o atleta explora pistas em formato de tigela, combinando fluidez e amplitude em cada transição curva-paredão-curva.",
     equipment: "• Capacete básico ou half-shell\n• Joelheiras e cotoveleiras para proteger quedas laterais\n• Luvas para maior aderência",
     rules: "• Julgamento baseado em fluidez, amplitude dos voos e criatividade na linha de manobras\n• Penalizações por desequilíbrios exagerados ou quedas que interrompam a sequência\n• Tempo limite de apresentação, geralmente 45–60 s",
@@ -69,14 +69,14 @@ const modalitiesData = {
   },
   park: {
     title: "🛹 Park",
-    image: "images/Park.png",
+    image: "images/park.png",
     description: "No Freestyle Park, os obstáculos (rampas, quarter pipes, spine ramps) são dispostos para criar linhas contínuas que incentivam combinação de manobras rápidas e graciosas.",
     equipment: "• Capacete essencial (half-shell)\n• Joelheira e cotoveleira\n• Óculos de proteção em pistas com partículas soltas",
     rules: "• Cada volta dura cerca de 1 min15 s; são permitidas 2–3 runs por atleta\n• Avaliação considera amplitude, dificuldade das manobras, fluidez e estilo\n• Dedução de pontos por interrupções ou uso excessivo de um único obstáculo",
     competitions: "• Sul-americano, Pan-americano, Mundial e Olimpíadas (Park BMX)\n• Atletas de destaque: José Maligno (atual campeão olímpico); Gustavo (BalaLoca); André Jesus"
   },
   street: {
-    title: "🚧 Street",
+    title: "🚧 street",
     image: "images/Street.png",
     description: "No Street, os atletas usam cenários urbanos — escadas, corrimãos, bordas — como elementos para criar verdadeiros circuitos de manobras e truques criativos.",
     equipment: "• Capacete (half-shell ou full face, dependendo do obstáculo)\n• Joelheira e cotoveleira\n• Tênis de sola rígida para controlar o contato com os pedais",
@@ -85,23 +85,23 @@ const modalitiesData = {
   },
   flatland: {
     title: "🎭 Flatland",
-    image: "images/Flatland.png",
+    image: "images/flatland.png",
     description: "Conhecido como o balé sobre duas rodas, o Flatland exige controle de equilíbrio e precisão em manobras estáticas e rotacionais, geralmente sem uso de freios.",
     equipment: "• Quadro customizado sem freio (para fluidez total)\n• Selim rebaixado e guidão gasto abaixo do padrão para manobras de pés no quadro",
     rules: "• Proibição de colocar o pé no chão durante a run\n• Avaliação por originalidade, complexidade e transição entre manobras\n• Runs de 60–90 s; até 3 runs por atleta",
     competitions: "• FISE Flatland; Auditorium Flatland Contest; Flatark\n• Atletas de destaque: Francisco Pekeno; Pedro Nascimento"
   },
   dirt: {
-    title: "🌿 Dirt Jump",
-    image: "images/Dirt.png",
+    title: "⛰️ Dirt Jump",
+    image: "images/dirt.png",
     description: "Inspirado no motocross, o Dirt traz rampas de terra de até 4 m de altura, saltos longos e aterrissagens técnicas, focando em truques no ar.",
     equipment: "• Capacete full face\n• Joelheira, cotoveleira e luvas reforçadas\n• Óculos de proteção contra poeira",
     rules: "• Pontuação baseada em combinação de rotações, flips e estilo de aterrissagem\n• Sequência de 3–5 saltos; cada salto avaliado separadamente\n• Penalizações por quedas ou saídas de linha do circuito",
     competitions: "• Carapicuíba Monster Jump; Jump Festival; Red Bull Dirt Conquers\n• Atletas de destaque: Leandro Overall; Mike Moura"
   },
   vert: {
-    title: "🏔️ Vert",
-    image: "images/Vert.png",
+    title: "📐 Vert",
+    image: "images/vert.png",
     description: "No Vert, pistas em formato de U (half-pipe) permitem que o atleta ganhe altura para executar manobras aéreas de grande amplitude.",
     equipment: "• Capacete full face\n• Joelheira, cotoveleira e protetores de pulso\n• Equipamento de corpo (colete leve) em Mega Rampa",
     rules: "• Julgamento por altura alcançada, amplitude das manobras e qualidade no pouso\n• Runs de 60 s; até 3 runs; o melhor score conta\n• Dedução por pousos instáveis ou perda de controle",
