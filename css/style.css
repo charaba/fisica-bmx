@@ -1,0 +1,462 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #222;
+  font-family: 'Nunito', sans-serif;
+  color: #eee;
+  letter-spacing: 0.4px;
+  line-height: 1.6;
+}
+
+#header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 60px;
+  background: #111;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header-piece-name {
+  font-size: 1.8rem;
+  color: #FFA500;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#bike-container {
+  position: fixed;
+  top: -20%;
+  left: 10%;
+  width: 80vw;
+  height: calc(100vh - 60px);
+  scale: 80%;
+  transition: transform 0.8s ease;
+}
+.piece {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  transition: transform 0.3s;
+}
+.piece.hovered {
+  transform: scale(1.1);
+  cursor: pointer;
+  z-index: 200 !important;
+}
+
+#detail-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+#detail-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+#detail-buttons {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+#back-button {
+  font-size: 2rem;
+  color: #FFA500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+#action-buttons {
+  display: flex;
+  gap: 10px;
+}
+.detail-btn {
+  padding: 8px 12px;
+  background: #FFA500;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #222;
+  font-weight: bold;
+}
+#detail-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+#detail-header h2 {
+  font-size: 2.2rem;
+  color: #FFA500;
+}
+#detail-content {
+  display: flex;
+  width: 90%;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+#detail-piece {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#detail-piece-img {
+  max-width: 80%;
+  transition: transform 0.5s;
+  visibility: hidden;
+}
+#detail-text {
+  flex: 1;
+  font-size: 1rem;
+  color: #eee;
+}
+#detail-text h3 {
+  color: #FFA500;
+  margin-bottom: 10px;
+}
+#detail-text p {
+  margin-bottom: 10px;
+}
+#detail-text-formula {
+  color: #FFA500;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#minigame-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#minigame-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.draggable {
+  position: absolute;
+  background: rgba(34,34,34,0.9);
+  border: 2px solid #FFA500;
+  border-radius: 5px;
+  z-index: 310;
+}
+.drag-bar {
+  background: #444;
+  color: #FFA500;
+  padding: 5px;
+  cursor: move;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid #FFA500;
+}
+#sim-controls .sim-control,
+#energy-graph-container canvas,
+#energy-graph-container div,
+#energy-graph-container button {
+  padding: 10px;
+}
+.sim-control {
+  margin-bottom: 10px;
+}
+.sim-control label {
+  margin-right: 5px;
+}
+.sim-control input[type="range"] {
+  vertical-align: middle;
+}
+.sim-control span {
+  margin-left: 5px;
+}
+
+#reset-bike-btn {
+  display: block;
+  object-position: center;
+  margin-left: 23%;
+  margin-bottom: 50px;
+}
+
+#energy-graph-container {
+  width: 300px;
+}
+#energy-graph-container .drag-bar {
+  margin-bottom: 5px;
+}
+#energy-graph {
+  background: #333;
+  border: 1px solid #AAA;
+  width: 300px;
+  height: 150px;
+  display: block;
+}
+#energy-stats {
+  background: #333;
+  color: #EEE;
+  font-size: 0.9rem;
+  padding: 5px;
+  text-align: left;
+}
+#energy-stats div {
+  margin: 2px 0;
+}
+
+.hud-btn {
+  position: absolute;
+  padding: 10px 15px;
+  background: #FFA500;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #222;
+  font-weight: bold;
+  z-index: 310;
+}
+#exit-game-btn {
+  bottom: 20px;
+  right: 20px;
+}
+
+#modalidades-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 350;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#modalidades-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal-back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  color: #FFA500;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Carousel de Modalidades */
+#modalities-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px;
+  max-width: 90%;
+  perspective: 1000px;
+}
+#modalities-carousel::-webkit-scrollbar {
+  display: none;
+}
+.card {
+  position: relative;
+  width: 220px;
+  height: 300px;
+  background: #333;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-10px) rotateY(5deg);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+}
+.card:active {
+  transform: translateY(0px) rotateY(0deg);
+  box-shadow: none;
+}
+.card h3 {
+  color: #FFA500;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+.card hr {
+  border: 0;
+  border-top: 1px solid #555;
+  margin: 10px 0;
+}
+.card-image {
+  position: relative;
+  overflow: hidden;
+  margin: 3px 3px;
+  border-radius: 25px;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#modality-detail-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(20,20,20,0.95);
+  z-index: 400;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+#modality-detail-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+#modality-detail-content {
+  width: 90%;
+  max-width: 800px;
+  background: #222;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+  color: #eee;
+}
+#modality-detail-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+#modality-detail-header h2 {
+  font-size: 2.2rem;
+  color: #FFA500;
+}
+#modality-detail-body {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+#modality-detail-image {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+#modality-detail-image img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+#modality-detail-text {
+  flex: 1;
+  min-width: 250px;
+  font-size: 1rem;
+}
+#modality-detail-text h3 {
+  color: #FFA500;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.watermark {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  color: #FFA500;
+  font-weight: bold;
+  font-size: 14px;
+  opacity: 0.6;
+  text-decoration: none;
+  z-index: 9999;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.watermark:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.hidden { display: none; }
+
+#headline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #111;
+  z-index: 150; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#headline h1 {
+  color: #EEE;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+#hover-physics {
+  color: #FFA500;
+  cursor: pointer;
+}
+
+#tooltip {
+  position: absolute;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  pointer-events: none;
+  z-index: 10000;
+  display: none;
+  white-space: nowrap;
+}
+
+#video-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: black;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+#video-overlay video {
+  width: 90%;
+  height: auto;
+  max-height: 90%;
+}

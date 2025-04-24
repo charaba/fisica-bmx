@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Física no BMX</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- REFLECT: Headline adicionado -->
+  <div id="headline">
+    <h1><span id="hover-physics">Física</span> no BMX</h1>
+  </div>
+
+  <!-- REFLECT: Elemento de tooltip que segue o mouse -->
+  <div id="tooltip"></div>
+
+  <!-- Header (HUD superior) -->
+  <header id="header">
+    <div id="header-piece-name"></div>
+  </header>
+
+  <!-- Container das peças (menu do projeto) -->
+  <main id="bike-container">
+    <img src="images/rodas.png" data-piece="rodas" class="piece" id="piece-rodas" alt="Rodas">
+    <img src="images/corrente.png" data-piece="corrente" class="piece" id="piece-corrente" alt="Corrente">
+    <img src="images/quadro.png" data-piece="quadro" class="piece" id="piece-quadro" alt="Quadro">
+    <img src="images/guidao.png" data-piece="guidao" class="piece" id="piece-guidao" alt="Guidão">
+    <img src="images/freio.png" data-piece="freio" class="piece" id="piece-freio" alt="Freio">
+    <img src="images/banco.png" data-piece="banco" class="piece" id="piece-banco" alt="Banco">
+  </main>
+
+  <!-- Overlay de Detalhe das Peças -->
+  <div id="detail-overlay" class="hidden">
+    <div id="detail-buttons">
+      <button id="back-button">&#8592;</button>
+      <div id="action-buttons">
+        <button id="start-game-btn" class="detail-btn">Iniciar Jogo</button>
+        <button id="go-modalidades-btn" class="detail-btn">Modalidades</button>
+      </div>
+    </div>
+    <div id="detail-header">
+      <h2 id="detail-title"></h2>
+    </div>
+    <div id="detail-content">
+      <div id="detail-piece">
+        <img src="" id="detail-piece-img" alt="">
+      </div>
+      <div id="detail-text">
+        <h3 id="detail-text-title"></h3>
+        <p id="detail-text-brief"></p>
+        <p id="detail-text-formula"></p>
+        <p id="detail-text-explication"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay do Minigame -->
+  <div id="minigame-overlay" class="hidden">
+    <div id="sim-controls" class="draggable">
+      <div class="drag-bar">Controles</div>
+      <div class="sim-control">
+        <label for="gravity">Gravidade (m/s²):</label>
+        <input type="range" id="gravity" min="1" max="15" value="10" step="0.1">
+        <span id="gravity-value">10</span>
+      </div>
+      <div class="sim-control">
+        <label for="min-speed">Velocidade Extra (m/s):</label>
+        <input type="range" id="min-speed" min="0" max="20" value="5" step="0.1">
+        <span id="min-speed-value">5</span>
+      </div>
+      <div class="sim-control" style="text-align: center;">
+        <button id="reset-bike-btn" class="hud-btn">Atualizar Velocidade</button>
+      </div>
+    </div>
+    <div id="energy-graph-container" class="draggable">
+      <div class="drag-bar">Estatísticas</div>
+      <canvas id="energy-graph"></canvas>
+      <div id="energy-stats">
+        <div id="kinetic-energy-text"></div>
+        <div id="potential-energy-text"></div>
+        <div id="total-energy-text"></div>
+      </div>
+    </div>
+    <canvas id="simulation-canvas"></canvas>
+    <button id="exit-game-btn" class="hud-btn">Sair do Jogo</button>
+  </div>
+
+  <!-- Overlay de Modalidades (Card Carousel) -->
+  <div id="modalidades-overlay" class="hidden">
+    <button id="modalidades-back-button" class="modal-back-btn">&#8592;</button>
+    <div id="modalities-carousel">
+      <!-- Cartas... (mesmo conteúdo original) -->
+      <div class="card" data-modality="racing">
+        <h3>Racing</h3><hr>
+        <div class="card-image">
+          <img src="images/Racing.png" alt="BMX Racing">
+        </div>
+      </div>
+      <div class="card" data-modality="bowl">
+        <h3>Bowl</h3><hr>
+        <div class="card-image">
+          <img src="images/Bowl.png" alt="BMX Bowl">
+        </div>
+      </div>
+      <div class="card" data-modality="park">
+        <h3>Park</h3><hr>
+        <div class="card-image">
+          <img src="images/Park.png" alt="BMX Park">
+        </div>
+      </div>
+      <div class="card" data-modality="street">
+        <h3>Street</h3><hr>
+        <div class="card-image">
+          <img src="images/Street.png" alt="BMX Street">
+        </div>
+      </div>
+      <div class="card" data-modality="flatland">
+        <h3>Flatland</h3><hr>
+        <div class="card-image">
+          <img src="images/Flatland.png" alt="BMX Flatland">
+        </div>
+      </div>
+      <div class="card" data-modality="dirt">
+        <h3>Dirt Jump</h3><hr>
+        <div class="card-image">
+          <img src="images/Dirt.png" alt="BMX Dirt Jump">
+        </div>
+      </div>
+      <div class="card" data-modality="vert">
+        <h3>Vert</h3><hr>
+        <div class="card-image">
+          <img src="images/Vert.png" alt="BMX Vert">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay de Modalidade Detalhada -->
+  <div id="modality-detail-overlay" class="hidden">
+    <button id="mod-detail-back-button" class="modal-back-btn">&#8592;</button>
+    <div id="modality-detail-content">
+      <div id="modality-detail-header">
+        <h2 id="modality-detail-title"></h2>
+      </div>
+      <div id="modality-detail-body">
+        <div id="modality-detail-image">
+          <img src="" id="modality-detail-img" alt="">
+        </div>
+        <div id="modality-detail-text">
+          <p id="modality-detail-description"></p>
+          <p id="modality-detail-equipment"></p>
+          <p id="modality-detail-rules"></p>
+          <p id="modality-detail-competitions"></p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Overlay do vídeo adicionado -->
+  <div id="video-overlay">
+    <video id="fernando-video" preload="auto"></video>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/game.js"></script>
+
+  <!-- Watermark -->
+  <a href="https://guns.lol/charaba" target="_blank" rel="noopener noreferrer">
+    <div class="watermark">Charaba</div>
+  </a>
+</body>
+</html>
