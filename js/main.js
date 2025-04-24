@@ -77,7 +77,7 @@ const modalitiesData = {
   },
   street: {
     title: "🚧 street",
-    image: "images/Street.png",
+    image: "images/street.png",
     description: "No Street, os atletas usam cenários urbanos — escadas, corrimãos, bordas — como elementos para criar verdadeiros circuitos de manobras e truques criativos.",
     equipment: "• Capacete (half-shell ou full face, dependendo do obstáculo)\n• Joelheira e cotoveleira\n• Tênis de sola rígida para controlar o contato com os pedais",
     rules: "• Criatividade e diversidade de combos são critérios principais\n• Uso ético do espaço privado; proibição de danos ao patrimônio urbano\n• Penalidades por manobras que ofereçam risco extremo sem controle",
